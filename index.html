@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tieho's Farming Fun Facts</title>
+<style>
+body{font-family:Arial;text-align:center;background:#e8f5e9;padding:50px}
+h1{color:#2e7d32}
+button{padding:15px 30px;background:#4caf50;color:white;border:none;border-radius:8px;font-size:18px}
+#fact{margin-top:20px;font-size:20px;background:white;padding:20px;border-radius:10px}
+</style>
+</head>
+<body>
+<h1>🌱 Tieho's Farming Fun Facts 🚜</h1>
+<p>By Tieho from Pretoria</p>
+<button onclick="showFact()">Show Fun Fact!</button>
+<div id="fact">Click the button!</div>
+<script>
+const facts=["Pretoria soil is perfect for summer veggies! ☀️","Compost can double your harvest! 🌱","1 bee can pollinate 5000 flowers a day! 🐝","Drip irrigation saves 60% water! 💧","Healthy soil has more life than people on Earth! 🌍"];
+function showFact(){document.getElementById('fact').innerText=facts[Math.floor(Math.random()*facts.length)]}
+</script>
+</body>
+</html>
