@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tieho's Farming Fun Facts</title>
 <style>
-body{font-family:Arial;text-align:center;background:#e8f5e9;padding:50px}
-h1{color:#2e7d32}
-button{padding:15px 30px;background:#4caf50;color:white;border:none;border-radius:8px;font-size:18px}
-#fact{margin-top:20px;font-size:20px;background:white;padding:20px;border-radius:10px}
+ body{font-family:Arial; text-align:center; margin:0; padding:20px; background:#e8f5e9; color:#2e7d32; transition:0.3s}
+ .dark{background:#1b2e1b; color:#c8e6c9}
+ .card{background:white; border-radius:15px; padding:20px; margin:15px auto; max-width:500px; box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+ .dark .card{background:#2e4a2e}
+ button{background:#4caf50; color:white; border:none; padding:12px 20px; border-radius:25px; font-size:16px; margin:5px; cursor:pointer}
+ button:hover{background:#388e3c}
+ .gallery{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:40px}
+ .fact-box{font-size:18px; font-weight:bold; min-height:50px; padding:15px}
 </style>
 </head>
 <body>
 <h1>🌱 Tieho's Farming Fun Facts 🚜</h1>
 <p>By Tieho from Pretoria</p>
+<button onclick="toggleDark()">🌙 Dark Mode</button>
+
+<div class="card">
+<div class="gallery">
+<span>🌽</span><span>🍅</span><span>🥬</span><span>🥕</span><span>🌻</span>
+</div>
+<p>Pretoria's best crops!</p>
+</div>
+
+<div class="card">
+<div id="fact" class="fact-box">Click the button!</div>
 <button onclick="showFact()">Show Fun Fact!</button>
-<div id="fact">Click the button!</div>
+<button onclick="shareFact()">WhatsApp Share ↗️</button>
+</div>
+
+<div class="card">
+<h3>Contact Farmer Tieho</h3>
+<p>Have a farming question?</p>
+<a href="https://wa.me/27643392184"><button>💬 Chat on WhatsApp: 064 339 2184</button></a>
+</div>
+
 <script>
-const facts=["Pretoria soil is perfect for summer veggies! ☀️","Compost can double your harvest! 🌱","1 bee can pollinate 5000 flowers a day! 🐝","Drip irrigation saves 60% water! 💧","Healthy soil has more life than people on Earth! 🌍"];
-function showFact(){document.getElementById('fact').innerText=facts[Math.floor(Math.random()*facts.length)]}
+let facts=[
+"Healthy soil has more life than people on Earth! 🌍",
+"Drip irrigation saves 60% water! 💧",
+"1 bee can pollinate 5000 flowers a day! 🐝",
+"Compost can double your harvest! 🌱",
+"Pretoria soil is perfect for summer veggies! ☀️",
+"Maize needs 500L water to grow 1kg! 🌽",
+"Tomatoes grow best at 20-25°C in Gauteng! 🍅",
+"Planting marigolds keeps pests away naturally! 🌼",
+"Crop rotation can increase yield by 30%! 🔄",
+"Pretoria has 8 months of perfect growing season! 🌞",
+"Worms can eat their weight in soil daily! 🪱",
+"Mulching keeps soil 10°C cooler! 🍂",
+"Sunflowers can clean toxic soil! 🌻",
+"Spinach grows in just 30 days in Pretoria! 🥬",
+"1 hectare can feed 10 people for a year! 👨‍🌾"
+];
+function showFact(){
+ let f=facts[Math.floor(Math.random()*facts.length)];
+ document.getElementById("fact").innerText=f;
+}
+function shareFact(){
+ let f=document.getElementById("fact").innerText;
+ let url="https://wa.me/?text="+encodeURIComponent(f+" - Check Tieho's Farm: https://48929.github.io/tieho-farming-facts/");
+ window.open(url);
+}
+function toggleDark(){document.body.classList.toggle("dark")}
 </script>
 </body>
-</html>
+  </html>
